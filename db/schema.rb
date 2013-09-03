@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902133438) do
+ActiveRecord::Schema.define(version: 20130903114453) do
+
+  create_table "deliveries", force: true do |t|
+    t.string   "name"
+    t.integer  "current_price"
+    t.integer  "amount_accepted"
+    t.integer  "amount_rejected"
+    t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "transporters", force: true do |t|
     t.string   "name"

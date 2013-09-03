@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  current_price: 1
+  amount_accepted: 1
+  amount_rejected: 1
+  comments: MyString
+
+two:
+  name: MyString
+  current_price: 1
+  amount_accepted: 1
+  amount_rejected: 1
+  comments: MyString

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @delivery.name %>
+</p>
+
+<p>
+  <strong>Current price:</strong>
+  <%= @delivery.current_price %>
+</p>
+
+<p>
+  <strong>Amount accepted:</strong>
+  <%= @delivery.amount_accepted %>
+</p>
+
+<p>
+  <strong>Amount rejected:</strong>
+  <%= @delivery.amount_rejected %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @delivery.comments %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>
