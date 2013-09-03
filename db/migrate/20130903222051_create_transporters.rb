@@ -3,7 +3,7 @@ class CreateTransporters < ActiveRecord::Migration
     create_table :transporters do |t|
       t.string :name
       t.string :phone
-      t.string :id
+      t.string :id_number
 
       t.timestamps
     end
