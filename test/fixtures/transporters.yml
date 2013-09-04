@@ -12,6 +12,10 @@
 
 one:
   name: MyString
+  phone: MyString
+  id: MyString
 
 two:
   name: MyString
+  phone: MyString
+  id: MyString
