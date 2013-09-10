@@ -69,6 +69,6 @@ class TransportersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transporter_params
-      params.require(:transporter).permit(:name, :phone, :id)
+      params.require(:transporter).permit(:name, :phone, :id_number)
     end
 end
