@@ -44,5 +44,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "less-rails"
+gem 'therubyracer'
 #Use Bootstrap
 gem "twitter-bootstrap-rails"

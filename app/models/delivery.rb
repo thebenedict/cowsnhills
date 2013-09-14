@@ -14,5 +14,7 @@
 
 class Delivery < ActiveRecord::Base
 	belongs_to :transporter
+	default_scope -> { order('created_at DESC') }
+	validates :transporter_id, presence: true
 	
 end

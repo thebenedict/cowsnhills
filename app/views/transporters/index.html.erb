@@ -18,9 +18,10 @@
         <td><%= transporter.name %></td>
         <td><%= transporter.phone %></td>
         <td><%= transporter.id %></td>
-        <td><%= link_to 'Show', transporter %></td>
-        <td><%= link_to 'Edit', edit_transporter_path(transporter) %></td>
-        <td><%= link_to 'Destroy', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add delivery', %></td>
+        <td><%= link_to 'Show transporter details', transporter %></td>
+        <td><%= link_to 'Edit transporter details', edit_transporter_path(transporter) %></td>
+        <td><%= link_to 'Delete transporter', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

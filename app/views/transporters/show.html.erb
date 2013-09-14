@@ -17,3 +17,16 @@
 
 <%= link_to 'Edit', edit_transporter_path(@transporter) %> |
 <%= link_to 'Back', transporters_path %>
+
+<h2><%= @transporter.name>'s deliveries</h2>
+<p><%= @transporter.name> has <%= @transporter.deliveries.size %> deliveries</p>
+<%= @transporter.deliveries %>
+
+<div class="span8">
+    <% if @transporter.deliveries.any? %>
+      <h3>Deliveries (<%= @transporter.deliveries.count %>)</h3>
+      <ol class="deliveries">
+        <%= render @deliveries %>
+      </ol>
+    <% end %>
+  </div>
