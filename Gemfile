@@ -48,3 +48,5 @@ gem "less-rails"
 gem 'therubyracer'
 #Use Bootstrap
 gem "twitter-bootstrap-rails"
+
+gem 'thin'

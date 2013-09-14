@@ -1,5 +1,4 @@
 class TransportersController < ApplicationController
-  before_action :set_transporter, only: [:show, :edit, :update, :destroy]
 
   # GET /transporters
   # GET /transporters.json
@@ -24,7 +23,8 @@ class TransportersController < ApplicationController
   # POST /transporters
   # POST /transporters.json
   def create
-    @transporter = Transporter.new(transporter_params)
+    #@transporter = Transporter.new(transporter_params)
+     @transporter = Transporter.new(params["transporter"])
 
     respond_to do |format|
       if @transporter.save

@@ -9,6 +9,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,7 +19,7 @@
         <td><%= transporter.name %></td>
         <td><%= transporter.phone %></td>
         <td><%= transporter.id %></td>
-        <td><%= link_to 'Add delivery', %></td>
+        <td><%= f.link_to_add "Add a delivery", :deliveries %></td>
         <td><%= link_to 'Show transporter details', transporter %></td>
         <td><%= link_to 'Edit transporter details', edit_transporter_path(transporter) %></td>
         <td><%= link_to 'Delete transporter', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Transporter', new_transporter_path %>
+<%= link_to 'New Transporter', new_transporter_path, class: "btn" %>
