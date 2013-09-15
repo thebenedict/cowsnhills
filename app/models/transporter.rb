@@ -12,5 +12,10 @@
 
 class Transporter < ActiveRecord::Base
 	has_many :deliveries, dependent: :destroy
+	attr_accessor :name, :phone, :id_number
 	
+	def show
+		@transporter = Transporter.find(params[:id])
+		@deliveries = @transporter.deliveries	#.paginate(page: params[:page])
+	end
 end

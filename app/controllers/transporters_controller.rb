@@ -1,5 +1,4 @@
 class TransportersController < ApplicationController
-  before_action :set_transporter, only: [:show, :edit, :update, :destroy]
 
   # GET /transporters
   # GET /transporters.json
@@ -25,7 +24,7 @@ class TransportersController < ApplicationController
   # POST /transporters.json
   def create
     @transporter = Transporter.new(transporter_params)
-
+	
     respond_to do |format|
       if @transporter.save
         format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }
@@ -35,7 +34,8 @@ class TransportersController < ApplicationController
         format.json { render json: @transporter.errors, status: :unprocessable_entity }
       end
     end
-  end
+    @transporter.save
+    end
 
   # PATCH/PUT /transporters/1
   # PATCH/PUT /transporters/1.json
