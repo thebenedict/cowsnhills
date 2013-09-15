@@ -34,7 +34,6 @@ class TransportersController < ApplicationController
         format.json { render json: @transporter.errors, status: :unprocessable_entity }
       end
     end
-    @transporter.save
     end
 
   # PATCH/PUT /transporters/1
