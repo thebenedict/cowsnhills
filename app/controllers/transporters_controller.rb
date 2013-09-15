@@ -23,9 +23,8 @@ class TransportersController < ApplicationController
   # POST /transporters
   # POST /transporters.json
   def create
-    #@transporter = Transporter.new(transporter_params)
-     @transporter = Transporter.new(params["transporter"])
-
+    @transporter = Transporter.new(transporter_params)
+	
     respond_to do |format|
       if @transporter.save
         format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }
@@ -35,7 +34,8 @@ class TransportersController < ApplicationController
         format.json { render json: @transporter.errors, status: :unprocessable_entity }
       end
     end
-  end
+    @transporter.save
+    end
 
   # PATCH/PUT /transporters/1
   # PATCH/PUT /transporters/1.json
