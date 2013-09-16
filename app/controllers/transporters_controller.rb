@@ -9,6 +9,7 @@ class TransportersController < ApplicationController
   # GET /transporters/1
   # GET /transporters/1.json
   def show
+	@transporter = Transporter.find(params[:id])
   end
 
   # GET /transporters/new
@@ -23,6 +24,7 @@ class TransportersController < ApplicationController
   # POST /transporters
   # POST /transporters.json
   def create
+  puts "in create"
     @transporter = Transporter.new(transporter_params)
 	
     respond_to do |format|
