@@ -19,10 +19,9 @@ class TransportersController < ApplicationController
 
   # GET /transporters/1/edit
   def edit
+	@transporter = Transporter.find(params[:id])
   end
 
-  # POST /transporters
-  # POST /transporters.json
   def create
   puts "in create"
     @transporter = Transporter.new(transporter_params)
@@ -38,22 +37,16 @@ class TransportersController < ApplicationController
     end
     end
 
-  # PATCH/PUT /transporters/1
-  # PATCH/PUT /transporters/1.json
   def update
-    respond_to do |format|
-      if @transporter.update(transporter_params)
-        format.html { redirect_to @transporter, notice: 'Transporter was successfully updated.' }
-        format.json { head :no_content }
+	@transporter = Transporter.find(params[:id])
+      if @transporter.update_attributes(transporter_params)
+		flash[:success] = "Transporter updated"
+		redirect_to @transporter
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @transporter.errors, status: :unprocessable_entity }
+		render 'edit'
       end
     end
-  end
 
-  # DELETE /transporters/1
-  # DELETE /transporters/1.json
   def destroy
     @transporter.destroy
     respond_to do |format|
