@@ -8,7 +8,6 @@
       <th>Id</th>
       <th>Show</th>
       <th>Edit</th>
-      <th>Delete</th>
       <th>List Deliveries</th>
     </tr>
   </thead>
@@ -21,7 +20,6 @@
         <td><%= transporter.id %></td>
         <td><%= link_to 'Show', transporter %></td>
         <td><%= link_to 'Edit', edit_transporter_path(transporter) %></td>
-        <td><%= link_to 'Delete', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		<td>List deliveries</td>
       </tr>
     <% end %>
