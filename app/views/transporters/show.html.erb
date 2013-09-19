@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%= @transporter.name %>'s details</h2>
 <p>
   <strong>Name:</strong>
   <%= @transporter.name %>
@@ -14,12 +14,11 @@
   <strong>National ID number:</strong>
   <%= @transporter.id_number %>
 </p>
+<%= link_to 'All transporters', transporters_path, {class: "btn"} %> |
+<%= link_to 'Edit', edit_transporter_path(@transporter), {class: "btn"} %>
 
-<%= link_to 'Edit', edit_transporter_path(@transporter) %> |
-<%= link_to 'Back', transporters_path %>
-
-<h2>Deliveries</h2>
-
+<h3><%= @transporter.name %>'s deliveries</h3>
+<% if !@transporter.deliveries.blank? %>
 <table>
 <thead>
 	<tr>
@@ -41,5 +40,9 @@
 <% end %>
 </tbody>
 </table>
+<% else %>
+	<p>This transporter hasn't delivered any milk yet</p>
+	<a class="btn">Add a new delivery for them</a>
+<% end %>
 
 
