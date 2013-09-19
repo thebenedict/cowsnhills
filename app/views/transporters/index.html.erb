@@ -6,10 +6,10 @@
       <th>Name</th>
       <th>Phone</th>
       <th>Id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>List Deliveries</th>
     </tr>
   </thead>
 
@@ -19,9 +19,10 @@
         <td><%= transporter.name %></td>
         <td><%= transporter.phone %></td>
         <td><%= transporter.id %></td>
-        <td><%= link_to 'Show transporter details', transporter %></td>
-        <td><%= link_to 'Edit transporter details', edit_transporter_path(transporter) %></td>
-        <td><%= link_to 'Delete transporter', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', transporter %></td>
+        <td><%= link_to 'Edit', edit_transporter_path(transporter) %></td>
+        <td><%= link_to 'Delete', transporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td>List deliveries</td>
       </tr>
     <% end %>
   </tbody>

@@ -15,6 +15,7 @@ class TransportersController < ApplicationController
   # GET /transporters/new
   def new
     @transporter = Transporter.new
+    @transporter.save
   end
 
   # GET /transporters/1/edit
@@ -23,7 +24,6 @@ class TransportersController < ApplicationController
   end
 
   def create
-  puts "in create"
     @transporter = Transporter.new(transporter_params)
 	
     respond_to do |format|
@@ -39,7 +39,7 @@ class TransportersController < ApplicationController
 
   def update
 	@transporter = Transporter.find(params[:id])
-      if @transporter.update_attributes(transporter_params)
+      if @transporter.update_attributes(transporter_params) #
 		flash[:success] = "Transporter updated"
 		redirect_to @transporter
       else
