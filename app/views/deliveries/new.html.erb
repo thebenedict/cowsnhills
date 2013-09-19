@@ -1,5 +1,7 @@
-<h1>New delivery</h1>
+<h1>New delivery for <%= @transporter.name %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', deliveries_path %>
+<%= link_to 'All deliveries', deliveries_path, {class: "btn"} %>
+<%= link_to 'All transporters', transporters_path, {class: "btn"} %> |
+

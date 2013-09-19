@@ -1,13 +1,17 @@
+<header class="span8">
 <h1>Listing transporters</h1>
+<%= link_to 'New Transporter', new_transporter_path, {class: "btn"} %>
+</header>
 
-<table>
+<% if !@transporters.blank? %>
+<table class="span7 row">
   <thead>
     <tr>
       <th>Name</th>
       <th>Phone</th>
       <th>Id</th>
       <th>Details</th>
-      <th>Edit</th>
+      <th>Add delivery</th>
     </tr>
   </thead>
 
@@ -16,14 +20,17 @@
       <tr>
         <td><%= transporter.name %></td>
         <td><%= transporter.phone %></td>
-        <td><%= transporter.id %></td>
+        <td><%= transporter.id_number %></td>
         <td><%= link_to 'Details', transporter, {class: "btn"} %></td>
-        <td><%= link_to 'Edit', edit_transporter_path(transporter), {class: "btn"} %></td>
+        <td><%= link_to 'Add delivery', :controller => :deliveries, :action => :new, :id => transporter.id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Transporter', new_transporter_path, {class: "btn"} %>
+<% else %>
+	<p>There are no transporters in the database</p>
+	<%= link_to 'Add one!', new_transporter_path, {class: "btn"} %>
+<% end %>
+

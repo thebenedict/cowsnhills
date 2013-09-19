@@ -8,9 +8,10 @@ class DeliveriesController < ApplicationController
   def show
   end
 
-  def new(transporter)
-    @delivery = Delivery.new
-    @delivery.transporter_id = transporter.id
+  def new
+	@transporter = Transporter.find(params[:id])
+    @delivery = @transporter.deliveries.build
+    @delivery.transporter_id = @transporter.id
   end
 
   def edit
@@ -18,11 +19,12 @@ class DeliveriesController < ApplicationController
 
 
   def create
-    @delivery = Delivery.new(delivery_params)
+	@transporter = Transporter.find(params[:id])
+    @delivery = @transporter.deliveries.build(delivery_params)
 
     respond_to do |format|
       if @delivery.save
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+        format.html { redirect_to @transporter, notice: 'Delivery was successfully created.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
         format.html { render action: 'new' }
@@ -57,6 +59,6 @@ class DeliveriesController < ApplicationController
     end
 
     def delivery_params
-      params.require(:delivery).permit(:name, :current_price, :amount_accepted, :amount_rejected, :comments)
+      params.require(:delivery).permit(:current_price, :amount_accepted, :amount_rejected, :comments)
     end
 end
