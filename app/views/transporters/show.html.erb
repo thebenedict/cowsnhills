@@ -19,7 +19,7 @@
 
 <h3><%= @transporter.name %>'s deliveries</h3>
 <% if !@transporter.deliveries.blank? %>
-<table>
+<%= link_to 'Add delivery', :controller => :deliveries, :action => :new, :id => @transporter.id %><table>
 <thead>
 	<tr>
 		<th>Deivery ID</th>
@@ -41,7 +41,7 @@
 </table>
 <% else %>
 	<p>This transporter hasn't delivered any milk yet</p>
-	<a class="btn">Add a new delivery for them</a>
+	<%= link_to 'Add a new delivery for them', new_delivery_path, :id => @transporter.id, :class => "btn" %>
 <% end %>
 
 
