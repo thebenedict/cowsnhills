@@ -52,4 +52,3 @@ gem 'therubyracer'
 gem "twitter-bootstrap-rails"
 
 gem 'thin'
-gem 'strong_parameters'
