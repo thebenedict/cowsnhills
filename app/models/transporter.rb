@@ -11,7 +11,7 @@
 #
 
 class Transporter < ActiveRecord::Base
-	has_many :deliveries, dependent: :destroy
+	has_many :deliveries, dependent: :destroy #delte transporter will destroy deliveries
 	
 	def show
 		@transporter = Transporter.find(params[:id])

@@ -1,28 +1,22 @@
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
 
-  # GET /deliveries
-  # GET /deliveries.json
   def index
     @deliveries = Delivery.all
   end
 
-  # GET /deliveries/1
-  # GET /deliveries/1.json
   def show
   end
 
-  # GET /deliveries/new
-  def new
+  def new(transporter)
     @delivery = Delivery.new
+    @delivery.transporter_id = transporter.id
   end
 
-  # GET /deliveries/1/edit
   def edit
   end
 
-  # POST /deliveries
-  # POST /deliveries.json
+
   def create
     @delivery = Delivery.new(delivery_params)
 
@@ -37,8 +31,6 @@ class DeliveriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /deliveries/1
-  # PATCH/PUT /deliveries/1.json
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
@@ -51,8 +43,6 @@ class DeliveriesController < ApplicationController
     end
   end
 
-  # DELETE /deliveries/1
-  # DELETE /deliveries/1.json
   def destroy
     @delivery.destroy
     respond_to do |format|
@@ -62,12 +52,10 @@ class DeliveriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_delivery
       @delivery = Delivery.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
       params.require(:delivery).permit(:name, :current_price, :amount_accepted, :amount_rejected, :comments)
     end

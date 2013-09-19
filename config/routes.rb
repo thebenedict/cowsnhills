@@ -3,7 +3,6 @@ Cowsnhills::Application.routes.draw do
 
   resources :deliveries
 
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
 
   # Example of regular route:
