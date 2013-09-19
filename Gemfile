@@ -45,8 +45,11 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "less-rails"
+
 gem 'therubyracer'
+
 #Use Bootstrap
 gem "twitter-bootstrap-rails"
 
 gem 'thin'
+gem 'strong_parameters'
