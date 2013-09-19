@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20130910210330) do
-=======
-ActiveRecord::Schema.define(version: 20130909131516) do
->>>>>>> c6984c249ca57cc53e79c84d8011471fedf2eb4f
+ActiveRecord::Schema.define(version: 20130919110528) do
 
   create_table "deliveries", force: true do |t|
     t.string   "name"
@@ -25,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130909131516) do
     t.string   "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "transporter_id"
   end
 
   create_table "microposts", force: true do |t|
