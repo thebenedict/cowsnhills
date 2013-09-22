@@ -1,7 +1,7 @@
 class TransportersController < ApplicationController
 
   def index
-    @transporters = Transporter.all
+    @transporters = Transporter.search(params[:search])
   end
 
   def show
