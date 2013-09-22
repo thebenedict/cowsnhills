@@ -17,6 +17,7 @@ class Transporter < ActiveRecord::Base
 		@transporter = Transporter.find(params[:id])
 		@deliveries = @transporter.deliveries	#.paginate(page: params[:page])
 	end
+
 	
 	def self.search(search)
 		if search
