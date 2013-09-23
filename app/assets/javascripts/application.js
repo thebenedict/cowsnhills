@@ -19,6 +19,7 @@
 $(document).ready(function(){
 	$('.help-inline').css('visibility', 'hidden');
 	
+	//phone validation
 	var phoneField = $('#phoneField');
 	var phoneDiv = $('#phoneContain');
 	var phoneMsg = $('#phoneMsg');
@@ -27,6 +28,7 @@ $(document).ready(function(){
 
 	phoneField.on('blur', function(){validate(phoneField, phoneDiv, phoneMsg, phoneFilter, phoneError)});
 	
+	//name validation
 	var nameField = $('#nameField');
 	var nameDiv = $('#nameContain');
 	var nameMsg = $('#nameMsg');
@@ -35,7 +37,7 @@ $(document).ready(function(){
 	
 	nameField.on('blur', function(){validate(nameField, nameDiv, nameMsg, nameFilter, nameError)});
 	
-	
+	//id validation
 	var idField = $('#idField');
 	var idDiv = $('#idContain');
 	var idMsg = $('#idMsg');
