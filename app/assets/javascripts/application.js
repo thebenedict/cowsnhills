@@ -30,10 +30,19 @@ $(document).ready(function(){
 	var nameField = $('#nameField');
 	var nameDiv = $('#nameContain');
 	var nameMsg = $('#nameMsg');
-	var nameError = "That's not a valid name"
 	var nameFilter = /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/; //like that?
+	var nameError = "That's not a valid name!";
 	
 	nameField.on('blur', function(){validate(nameField, nameDiv, nameMsg, nameFilter, nameError)});
+	
+	
+	var idField = $('#idField');
+	var idDiv = $('#idContain');
+	var idMsg = $('#idMsg');
+	var idFilter = /^[0-9]{16}$/;
+	var idError = "Id must be 16 digits!";
+	
+	idField.on('blur', function(){validate(idField, idDiv, idMsg, idFilter, idError)});
 	
 	});
 	
