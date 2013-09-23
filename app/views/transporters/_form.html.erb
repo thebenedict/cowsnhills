@@ -13,10 +13,11 @@
     </div>
   <% end %>
 
-<div class="control-group">
-    <%= f.label :name, :class => "control-label" %><br>
+<div class="control-group" id="nameContain">
+    <%= f.label :name, :class => "label" %><br>
 	<div class="controls">
-		<%= f.text_field :name, :class => "input-xlarge" %>
+		<%= f.text_field :name, :class => "input-xlarge", :id => "nameField" %>
+		<span class="help-inline" id="nameMsg"></span>
 	</div>
 </div>
   

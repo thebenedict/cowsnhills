@@ -16,58 +16,50 @@
 //= require turbolinks
 //= require_tree .
 
-/*
- <div class="control-group">
-	<%= f.label :phone, :class => "label label-important" %><br>
-	<div class="controls">
-		<%= f.text_field :phone, :class => "input-xlarge", :id => "inputError" %>
-		<span class="help-inline">Woops! Please write a 10-digit phone number</span>
-  </div>
-</div> 
- */
 $(document).ready(function(){
-	
-	
-	//phone validation
 	$('.help-inline').css('visibility', 'hidden');
-	var phoneField = $('#phoneField');
 	
-	phoneField.on('blur', function(){
-		var input = phoneField.val();
-		var phoneDiv = $('#phoneContain');
-		var label = phoneDiv.children().first();
-		
-		if (validatePhone(input)){
-			$('#phoneMsg').text("Valid!").css('visibility', 'visible');
-			label.removeClass("label-important").addClass("label-success");
-			phoneDiv.removeClass('error').addClass('success');
-			
-			
-		} else {
-			phoneDiv.removeClass('success').addClass('error');
-			$('#phoneMsg').text("Woops! Please write a 10-digit phone number").css('visibility', 'visible');
-			label.addClass("label-important");
-			}
-		});
+	var phoneField = $('#phoneField');
+	var phoneDiv = $('#phoneContain');
+	var phoneMsg = $('#phoneMsg');
+	var phoneFilter = /^[0-9]{10}$/;
+	var phoneError = "Woops! Please write a 10-digit phone number";
+
+	phoneField.on('blur', function(){validate(phoneField, phoneDiv, phoneMsg, phoneFilter, phoneError)});
+	
+	var nameField = $('#nameField');
+	var nameDiv = $('#nameContain');
+	var nameMsg = $('#nameMsg');
+	var nameError = "That's not a valid name"
+	var nameFilter = /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/; //like that?
+	
+	nameField.on('blur', function(){validate(nameField, nameDiv, nameMsg, nameFilter, nameError)});
 	
 	});
 	
-function validateName(name){
-	
-	}
-
-function validatePhone(phoneField){
-	var value = phoneField;
-	$.trim(value);
-	var filter = /^[0-9]{10}$/;
-	
+function testRegEx(value, filter){
 	if (filter.test(value)){
 		return true;
 	} else {
 		return false;
-		}	
+		}
 	}
-	
-function validateId(id){
-	
-	}
+
+function validate(field, parentDiv, msgId, regEx, errorMsg){
+		//get input value and label field
+		var value = field.val();
+		var label = parentDiv.children().first();
+		
+		//if phone is 10 digits
+		if (testRegEx(value, regEx)){
+			//success message
+			parentDiv.removeClass('error').addClass('success');
+			msgId.text("Valid!").css('visibility', 'visible');
+			label.removeClass("label-important").addClass("label-success");
+		} else {
+			//error message
+			parentDiv.removeClass('success').addClass('error');
+			msgId.text(errorMsg).css('visibility', 'visible');
+			label.removeClass("label-success").addClass("label-important");
+			}
+		}
