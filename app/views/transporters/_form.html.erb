@@ -1,6 +1,6 @@
 <div class="row">
 <div class="span4 offset4">
-<%= form_for @transporter do |f| %>
+<%= form_for @transporter, :id => "transporterForm" do |f| %>
   <% if @transporter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@transporter.errors.count, "error") %> prohibited this transporter from being saved:</h2>
@@ -13,18 +13,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="control-group">
+    <%= f.label :name, :class => "control-label" %><br>
+	<div class="controls">
+		<%= f.text_field :name, :class => "input-xlarge" %>
+	</div>
+</div>
+  
+<div class="control-group" id="phoneContain">
+	<%= f.label :phone, :class => "label" %><br>
+	<div class="controls">
+		<%= f.text_field :phone, :class => "input-xlarge", :id => "phoneField" %>
+		<span class="help-inline" id="phoneMsg"></span>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :id_number %><br>
-    <%= f.text_field :id_number %>
-  </div>
+</div>
+  
+  <div class="control-group">
+    <%= f.label :id_number, :class => "control-label" %><br>
+    <div class="controls">
+		<%= f.text_field :id_number, :class => "input-xlarge" %>
+	</div>
+ </div>
+  
   <div class="actions">
     <%= f.submit 'Add/Edit transporter...', class: 'btn btn-success' %>
   </div>
