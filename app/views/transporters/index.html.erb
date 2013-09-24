@@ -2,7 +2,7 @@
 <h1>Listing transporters</h1>
 <%= link_to 'New Transporter', new_transporter_path, {class: "btn"} %>
 </header>
-
+<p>Showing <%=  @transporters.length %> transporters </p>
 <% if !@transporters.blank? %>
 <table class="span7 row">
   <thead>
@@ -22,7 +22,7 @@
         <td><%= transporter.phone %></td>
         <td><%= transporter.id_number %></td>
         <td><%= link_to 'Details', transporter, {class: "btn"} %></td>
-        <td><%= link_to 'Add delivery', :controller => :deliveries, :action => :new, :id => transporter.id %></td>
+        <td><%= link_to 'Add delivery', :class => " btn btn-xlarge", :controller => :deliveries, :action => :new, :id => transporter.id %></td>
       </tr>
     <% end %>
   </tbody>
