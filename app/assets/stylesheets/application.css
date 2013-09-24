@@ -12,15 +12,13 @@
  *= require_tree .
  */
 
-/*@import "bootstrap";
-@import "bootstrap-responsive";
-*/
 body { 
     padding-top: 60px; 
 }
 
 // transporter add delivery buttons
-.btn-xlarge {
+.addDelivery {
+	background-color: #b0c4de;
     padding: 18px 28px;
     font-size: 22px;
     line-height: normal;

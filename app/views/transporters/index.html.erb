@@ -22,7 +22,7 @@
         <td><%= transporter.phone %></td>
         <td><%= transporter.id_number %></td>
         <td><%= link_to 'Details', transporter, {class: "btn"} %></td>
-        <td><%= link_to 'Add delivery', :class => " btn btn-xlarge", :controller => :deliveries, :action => :new, :id => transporter.id %></td>
+        <td><%= link_to 'Add delivery', new_delivery_path(:id => transporter.id), :class => "btn addDelivery" %></td>
       </tr>
     <% end %>
   </tbody>

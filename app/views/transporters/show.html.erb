@@ -26,7 +26,9 @@ His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Ti
 
 <h3><%= @transporter.name %>'s deliveries</h3>
 <% if !@transporter.deliveries.blank? %>
-<%= link_to 'Add delivery', :controller => :deliveries, :action => :new, :id => @transporter.id %><table>
+<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn addDelivery" %>
+
+<table>
 <thead>
 	<tr>
 		<th>Deivery ID</th>
@@ -48,7 +50,7 @@ His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Ti
 </table>
 <% else %>
 	<p>This transporter hasn't delivered any milk yet</p>
-	<%= link_to 'Add delivery', :controller => :deliveries, :action => :new, :id => @transporter.id %>
+	<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn addDelivery" %>
 <% end %>
 
 
