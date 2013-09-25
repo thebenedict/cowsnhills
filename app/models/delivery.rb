@@ -20,8 +20,8 @@ class Delivery < ActiveRecord::Base
 		numericality: {message: "must be a number"}
 	
 	validates :amount_accepted, 
-		presence: {message: "You must enter amount of milk accepted"}
-		numericality: {"must be a number"}
+		presence: {message: "You must enter amount of milk accepted"},
+		numericality: {message: "must be a number"}
 	
 	validates :amount_rejected,
 		allow_blank: true,
