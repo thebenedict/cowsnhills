@@ -4,7 +4,7 @@
 </header>
 <p>Showing <%=  @transporters.length %> transporters </p>
 <% if !@transporters.blank? %>
-<table class="span7 row">
+<table class="table-striped span7 row">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,13 +22,13 @@
         <td><%= transporter.phone %></td>
         <td><%= transporter.id_number %></td>
         <td><%= link_to 'Details', transporter, {class: "btn"} %></td>
-        <td><%= link_to 'Add delivery', new_delivery_path(:id => transporter.id), :class => "btn addDelivery" %></td>
+        <td><%= link_to 'Add delivery', new_delivery_path(:id => transporter.id), :class => "btn", :id => "addDeliveryBtn" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-
+<h5>foo</h5>
 <% else %>
 	<p>There are no transporters in the database</p>
 	<%= link_to 'Add one!', new_transporter_path, {class: "btn"} %>

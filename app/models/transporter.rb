@@ -13,6 +13,18 @@
 class Transporter < ActiveRecord::Base
 	has_many :deliveries, dependent: :destroy #delte transporter will destroy deliveries
 	
+	validates :name, 
+		presence: { :message => "You must enter a name!"}
+		
+	validates :phone, 
+		allow_blank: true,
+		format: {:with => /\A[0-9]{10}\Z/, :message => "Phone number must be 10 digits"}
+		
+	validates :id_number, 
+		allow_blank: true,
+		uniqueness: {:message => "That id number is already registered"}, 
+		format: {:with => /\A[0-9]{16}\Z/, :message => "The id number format is not valid!"}
+	
 	def show
 		@transporter = Transporter.find(params[:id])
 		@deliveries = @transporter.deliveries	#.paginate(page: params[:page])
