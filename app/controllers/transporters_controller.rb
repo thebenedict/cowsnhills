@@ -12,7 +12,6 @@ class TransportersController < ApplicationController
 
   def new
     @transporter = Transporter.new
-    @transporter.save
   end
 
   def edit
@@ -31,6 +30,8 @@ class TransportersController < ApplicationController
         format.json { render json: @transporter.errors, status: :unprocessable_entity }
       end
     end
+    
+    @transporter.save
     end
 
   def update

@@ -3,7 +3,6 @@
 # Table name: deliveries
 #
 #  id              :integer          not null, primary key
-#  name            :string(255)
 #  current_price   :integer
 #  amount_accepted :integer
 #  amount_rejected :integer
@@ -14,7 +13,22 @@
 
 class Delivery < ActiveRecord::Base
 	belongs_to :transporter
-	default_scope -> { order('created_at DESC') }
 	validates :transporter_id, presence: true
+	
+	validates :current_price, 
+		presence: {message: "You must enter a price for milk"},
+		numericality: {message: "must be a number"}
+	
+	validates :amount_accepted, 
+		presence: {message: "You must enter amount of milk accepted"},
+		numericality: {message: "must be a number"}
+	
+	validates :amount_rejected,
+		allow_blank: true,
+		numericality: {message: "must be a number"}
+		
+	#no validation for comments, is this safe?
+	
+	default_scope -> { order('created_at DESC') }
 	
 end

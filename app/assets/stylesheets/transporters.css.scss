@@ -1,3 +1,19 @@
 // Place all the styles related to the transporters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// transporter add delivery buttons
+#addDeliveryBtn {
+	background-color: #b0c4de;
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
+
+h5 {
+	color: #ccc;
+}
