@@ -1,10 +1,13 @@
+<div class="container">
 <header class="span8">
-<h1>Listing transporters</h1>
+<h1 align="center">Listing transporters</h1>
+<%= paginate @transporters %>
 <%= link_to 'New Transporter', new_transporter_path, {class: "btn"} %>
 </header>
-<p>Showing <%=  @transporters.length %> transporters </p>
 <% if !@transporters.blank? %>
-<table class="table-striped span7 row">
+<p>Showing <%=  @transporters.length %> transporters </p>
+<table class="table table-striped pagination-centered" >
+
   <thead>
     <tr>
       <th>Name</th>
@@ -33,4 +36,4 @@
 	<p>There are no transporters in the database</p>
 	<%= link_to 'Add one!', new_transporter_path, {class: "btn"} %>
 <% end %>
-
+</div>

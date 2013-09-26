@@ -35,7 +35,7 @@ class Transporter < ActiveRecord::Base
 		if search
 			find(:all, :conditions => ['name LIKE ? OR phone LIKE ? OR id_number LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
 		else
-			find(:all)
+			Transporter.find(:all)
   end
 end
 end
