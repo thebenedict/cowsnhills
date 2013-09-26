@@ -16,14 +16,15 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on("ready page:load", function(){
 	$('.help-inline').css('visibility', 'hidden');
+	$('#submit-btn').prop('disabled', true);
 	
 	//phone validation
 	var phoneField = $('#phoneField');
 	var phoneDiv = $('#phoneContain');
 	var phoneMsg = $('#phoneMsg');
-	var phoneFilter = /^[0-9]{10}$/;
+	var phoneFilter = /^07[0-9]{8}$/;
 	var phoneError = "Woops! Please write a 10-digit phone number";
 
 	phoneField.on('blur', function(){validate(phoneField, phoneDiv, phoneMsg, phoneFilter, phoneError)});
@@ -67,10 +68,13 @@ function validate(field, parentDiv, msgId, regEx, errorMsg){
 			parentDiv.removeClass('error').addClass('success');
 			msgId.text("Valid!").css('visibility', 'visible');
 			label.removeClass("label-important").addClass("label-success");
+			$('#submit-btn').prop('disabled', false);
 		} else {
 			//error message
 			parentDiv.removeClass('success').addClass('error');
 			msgId.text(errorMsg).css('visibility', 'visible');
 			label.removeClass("label-success").addClass("label-important");
+			//disable submit button
+			
 			}
 		}

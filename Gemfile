@@ -56,4 +56,4 @@ gem "twitter-bootstrap-rails"
 
 gem 'thin'
 
-gem 'client_side_validations'
+#gem 'client_side_validations'
