@@ -19,8 +19,8 @@
 <% @transporter.deliveries.each do |summary| %>
 His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Time.now) %>
 
- </i></h4>
-<% end %>
+ <% end %>
+</i></h4>
 <%= link_to 'All transporters', transporters_path, {class: "btn"} %> |
 <%= link_to 'Edit', edit_transporter_path(@transporter), {class: "btn"} %>
 

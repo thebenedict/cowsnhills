@@ -1,7 +1,9 @@
 class TransportersController < ApplicationController
 
   def index
-    @transporters = Transporter.search(params[:search])
+	#@transporters = Transporter.search(params[:search])
+	@transporters = Kaminari.paginate_array(Transporter.search(params[:search])).page(params[:page]).per(5)
+	
   end
 
   def show
