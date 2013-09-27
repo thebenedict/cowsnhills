@@ -20,23 +20,23 @@ $(document).on("ready page:load", function(){
 	$('.help-inline').css('visibility', 'hidden');
 	$('#submit-btn').prop('disabled', true);
 	
-	//phone validation
-	var phoneField = $('#phoneField');
-	var phoneDiv = $('#phoneContain');
-	var phoneMsg = $('#phoneMsg');
-	var phoneFilter = /^07[0-9]{8}$/;
-	var phoneError = "Woops! Please write a 10-digit phone number";
-
-	phoneField.on('blur', function(){validate(phoneField, phoneDiv, phoneMsg, phoneFilter, phoneError)});
-	
 	//name validation
 	var nameField = $('#nameField');
 	var nameDiv = $('#nameContain');
 	var nameMsg = $('#nameMsg');
 	var nameFilter = /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/; //like that?
-	var nameError = "That's not a valid name!";
+	var nameError = "Name must be at least two characters!";
 	
 	nameField.on('blur', function(){validate(nameField, nameDiv, nameMsg, nameFilter, nameError)});
+	
+	//phone validation
+	var phoneField = $('#phoneField');
+	var phoneDiv = $('#phoneContain');
+	var phoneMsg = $('#phoneMsg');
+	var phoneFilter = /^07[0-9]{8}$/;
+	var phoneError = "Phone must be 10-digits and start with 07";
+
+	phoneField.on('blur', function(){validate(phoneField, phoneDiv, phoneMsg, phoneFilter, phoneError)});
 	
 	//id validation
 	var idField = $('#idField');
@@ -62,19 +62,24 @@ function validate(field, parentDiv, msgId, regEx, errorMsg){
 		var value = field.val();
 		var label = parentDiv.children().first();
 		
-		//if phone is 10 digits
+		//if passes regex
 		if (testRegEx(value, regEx)){
 			//success message
 			parentDiv.removeClass('error').addClass('success');
-			msgId.text("Valid!").css('visibility', 'visible');
+			msgId.css('visibility', 'hidden');
 			label.removeClass("label-important").addClass("label-success");
-			$('#submit-btn').prop('disabled', false);
+			//enable submit btn
+			if (field.get(0) === $('#nameField').get(0)){
+				$('#submit-btn').prop('disabled', false);
+			}
 		} else {
 			//error message
 			parentDiv.removeClass('success').addClass('error');
 			msgId.text(errorMsg).css('visibility', 'visible');
-			label.removeClass("label-success").addClass("label-important");
-			//disable submit button
-			
+			label.removeClass("label-success").addClass("label-important");	
+			//disable submit btn
+			if (field.get(0) === $('#nameField').get(0)){
+				$('#submit-btn').prop('disabled', true);
+			}		
 			}
 		}
