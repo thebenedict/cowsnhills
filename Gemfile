@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 #use kaminari for pagination
 gem 'kaminari'
 
+gem 'httparty'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

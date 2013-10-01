@@ -26,9 +26,21 @@ class Delivery < ActiveRecord::Base
 	validates :amount_rejected,
 		allow_blank: true,
 		numericality: {message: "must be a number"}
+
+  after_create :send_confirmation_sms
 		
 	#no validation for comments, is this safe?
 	
 	default_scope -> { order('created_at DESC') }
+
+  def value
+    self.amount_accepted * self.current_price
+  end
 	
+  protected
+  def send_confirmation_sms
+    body_text = "Thank you for your delivery of #{self.amount_accepted} liters, expect payment of RWF#{self.value}!"
+    t = Textit.new
+    t.send_sms(543, self.transporter.phone, body_text)
+  end
 end
