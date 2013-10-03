@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require turbolinks
+//= require twitter/bootstrap
 //= require_tree .
 
 $(document).on("ready page:load", function(){

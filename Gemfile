@@ -49,12 +49,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "less-rails"
+gem 'bootstrap-sass-rails'
 
-gem 'therubyracer'
+#sass bootstrap
+gem 'bootswatch-rails'
 
-#Use Bootstrap
-gem "twitter-bootstrap-rails"
 
 gem 'thin'
 
