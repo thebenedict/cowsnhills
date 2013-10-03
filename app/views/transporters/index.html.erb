@@ -1,11 +1,9 @@
-<div class="container">
 <header class="span8">
-<h1 align="center">Listing transporters</h1>
+<h1 align="center">Showing <%=  @transporters.length %> transporters </h1>
 <%= paginate @transporters %>
-<%= link_to 'New Transporter', new_transporter_path, {class: "btn"} %>
+<%= link_to 'New Transporter', new_transporter_path, {class: "btn btn-success pull-right"} %>
 </header>
 <% if !@transporters.blank? %>
-<p>Showing <%=  @transporters.length %> transporters </p>
 <table class="table table-striped pagination-centered" >
 
   <thead>
@@ -31,9 +29,7 @@
   </tbody>
 </table>
 <br>
-<h5>foo</h5>
 <% else %>
 	<p>There are no transporters in the database</p>
 	<%= link_to 'Add one!', new_transporter_path, {class: "btn"} %>
 <% end %>
-</div>
