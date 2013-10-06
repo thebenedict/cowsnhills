@@ -1,22 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<!-- Analytics -->		
-<h4><i> <%= @transporter.name %> has delivered <%= @transporter.deliveries.sum("amount_accepted") %> liters so far. <%= @transporter.deliveries.sum("amount_rejected") %> of them have been rejected.<br>
-
-<% @transporter.deliveries.each do |summary| %>
-His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Time.now) %>
-
- <% end %>
-</i></h4>
-<!-- End analytics -->
+<p id="notice"><%= notice %></p> <!-- flash message -->
 
 <%= link_to 'All transporters', transporters_path, {class: "btn btn-default"} %>
-<%= link_to 'Edit', edit_transporter_path(@transporter), {class: "btn btn-default"} %>
+
 
 
 <div class="row">
-	<div class="col-md-4" id="transporterDetails">
-		<h2><%= @transporter.name %>'s details</h2>
+	<div class="col-md-3" id="transporterDetails">
+	<div class="row">
+		<div class="col-md-12">
+				<h2><%= @transporter.name %>'s details</h2>
+				<%= link_to '(edit)', edit_transporter_path(@transporter), {class: "btn btn-link"} %>
+		</div>
+	</div>
 		<p>
 			<strong>Name:</strong>
 			<%= @transporter.name %>
@@ -31,13 +26,33 @@ His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Ti
 			<strong>National ID number:</strong>
 			<%= @transporter.id_number %>
 		</p>
+		
 	</div><!-- #transporterDetails -->
 
-	<div class="col-md-8" id="deliveriesTable">
-		<h3><%= @transporter.name %>'s deliveries</h3>
+	<div class="col-md-9" id="deliveriesTable">
+		<div class="row">
+			<div class="col-md-9">
+				<p class="lead"><%= @transporter.name %>'s deliveries</p>
+			</div>
+			<div class="text-left col-md-3">
+				<%= link_to 'Add delivery', new_delivery_path(id: @transporter.id), {class: "btn btn-success pull-right addDelivery"} %>
+			</div>
+		</div>
 		<% if !@transporter.deliveries.blank? %>
-			<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn btn-default addDelivery" %>
+			<div class="row">
+				<!-- Analytics -->		
+<h4><i> <%= @transporter.name %> has delivered <%= @transporter.deliveries.sum("amount_accepted") %> liters so far. <%= @transporter.deliveries.sum("amount_rejected") %> of them have been rejected.<br>
+
+<% @transporter.deliveries.each do |summary| %>
+His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Time.now) %>
+
+ <% end %>
+</i></h4>
+<!-- End analytics -->
 			
+			
+			</div>
+		
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
