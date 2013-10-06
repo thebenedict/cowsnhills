@@ -40,18 +40,16 @@
 		</div>
 		<% if !@transporter.deliveries.blank? %>
 			<div class="row">
-				<!-- Analytics -->		
-<h4><i> <%= @transporter.name %> has delivered <%= @transporter.deliveries.sum("amount_accepted") %> liters so far. <%= @transporter.deliveries.sum("amount_rejected") %> of them have been rejected.<br>
-
-<% @transporter.deliveries.each do |summary| %>
-His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Time.now) %>
-
- <% end %>
-</i></h4>
-<!-- End analytics -->
-			
-			
-			</div>
+				<dl class="dl-horizontal">
+					<dt>Total amount accepted:</dt>
+					<dd><%= @transporter.deliveries.sum("amount_accepted") %></dd>
+					<dt>Total amount rejected:</dt>
+					<dd><%= @transporter.deliveries.sum("amount_rejected") %></dd>
+				</dl>
+					<% @transporter.deliveries.each do |summary| %>
+						His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Time.now) %>
+					<% end %>
+			</div><!-- analytics -->
 		
 			<table class="table table-striped table-bordered">
 				<thead>
