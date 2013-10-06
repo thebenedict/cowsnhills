@@ -1,9 +1,8 @@
 class TransportersController < ApplicationController
 
   def index
-	#@transporters = Transporter.search(params[:search])
-	@transporters = Kaminari.paginate_array(Transporter.search(params[:search])).page(params[:page]).per(5)
-	
+	@transporters = Kaminari.paginate_array(Transporter.search(params[:search])).page(params[:page]).per(10)
+	@transporters_count = Transporter.search(params[:search]).length
   end
 
   def show
@@ -23,7 +22,7 @@ class TransportersController < ApplicationController
 	
     respond_to do |format|
       if @transporter.save
-        format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }
+        format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }	
         format.json { render action: 'show', status: :created, location: @transporter }
       else
         format.html { render action: 'new' }

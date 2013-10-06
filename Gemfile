@@ -28,7 +28,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #use kaminari for pagination
-gem 'kaminari'
+gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
+gem 'kaminari-bootstrap'
 
 gem 'httparty'
 
@@ -49,12 +50,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#sass bootstrap
 gem 'bootstrap-sass-rails'
 
-#sass bootstrap
-gem 'bootswatch-rails'
-
-
 gem 'thin'
-
-#gem 'client_side_validations'

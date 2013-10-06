@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @transporter.name %>'s details</h2>
-<p>
-  <strong>Name:</strong>
-  <%= @transporter.name %>
-</p>
+<div class="row">
+	<div class="span4">
+		<h2><%= @transporter.name %>'s details</h2>
+		<p>
+			<strong>Name:</strong>
+			<%= @transporter.name %>
+		</p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @transporter.phone %>
-</p>
+		<p>
+			<strong>Phone:</strong>
+			<%= @transporter.phone %>
+		</p>
 
-<p>
-  <strong>National ID number:</strong>
-  <%= @transporter.id_number %>
-</p>
+		<p>
+			<strong>National ID number:</strong>
+			<%= @transporter.id_number %>
+		</p>
+</div><!--.span4" -->
+<div class="span8">
 <h4><i> <%= @transporter.name %> has delivered <%= @transporter.deliveries.sum("amount_accepted") %> liters so far. <%= @transporter.deliveries.sum("amount_rejected") %> of them have been rejected.<br>
 
 <% @transporter.deliveries.each do |summary| %>
@@ -21,12 +25,12 @@ His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Ti
 
  <% end %>
 </i></h4>
-<%= link_to 'All transporters', transporters_path, {class: "btn"} %> |
-<%= link_to 'Edit', edit_transporter_path(@transporter), {class: "btn"} %>
+<%= link_to 'All transporters', transporters_path, {class: "btn btn-default"} %> |
+<%= link_to 'Edit', edit_transporter_path(@transporter), {class: "btn btn-default"} %>
 
 <h3><%= @transporter.name %>'s deliveries</h3>
 <% if !@transporter.deliveries.blank? %>
-<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn addDelivery" %>
+<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn btn-default addDelivery" %>
 
 <table>
 <thead>
@@ -50,7 +54,8 @@ His last delivery last from <%= distance_of_time_in_words(summary.updated_at, Ti
 </table>
 <% else %>
 	<p>This transporter hasn't delivered any milk yet</p>
-	<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn addDelivery" %>
+	<%= link_to 'Add delivery', new_delivery_path(:id => @transporter.id), :class => "btn btn-default addDelivery" %>
 <% end %>
-
+</div>
+</div><!--.row -->
 

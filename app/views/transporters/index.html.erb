@@ -1,8 +1,13 @@
-<header class="span8">
-<h1 align="center">Showing <%=  @transporters.length %> transporters </h1>
-<%= paginate @transporters %>
-<%= link_to 'New Transporter', new_transporter_path, {class: "btn btn-success pull-right"} %>
-</header>
+<div class="row">
+	
+	<div class="col-md-6">
+		<h3><%= pluralize(@transporters_count, 'transporter') %></h3>
+	</div>
+	<div class="col-md-6">
+		<%= link_to 'New Transporter', new_transporter_path, class: "btn btn-success" %>
+		<%= link_to "Show all", transporters_path, class: "btn btn-default" %>
+	</div>
+</div>
 <% if !@transporters.blank? %>
 <table class="table table-striped pagination-centered" >
 
@@ -11,8 +16,9 @@
       <th>Name</th>
       <th>Phone</th>
       <th>Id</th>
-      <th>Details</th>
+      <th>Show transporter</th>
       <th>Add delivery</th>
+      <th>Edit details</th>
     </tr>
   </thead>
 
@@ -22,8 +28,9 @@
         <td><%= transporter.name %></td>
         <td><%= transporter.phone %></td>
         <td><%= transporter.id_number %></td>
-        <td><%= link_to 'Details', transporter, {class: "btn"} %></td>
-        <td><%= link_to 'Add delivery', new_delivery_path(:id => transporter.id), :class => "btn", :id => "addDeliveryBtn" %></td>
+        <td><%= link_to 'Details', transporter, {class: "btn btn-default"} %></td>
+        <td><%= link_to 'Add delivery', new_delivery_path(id: transporter.id), {class: "btn btn-default", id: "addDeliveryBtn"} %></td>
+        <td><%= link_to 'Edit transporter', edit_transporter_path(id: transporter.id), {class: "btn btn-link"} %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,5 +38,7 @@
 <br>
 <% else %>
 	<p>There are no transporters in the database</p>
-	<%= link_to 'Add one!', new_transporter_path, {class: "btn"} %>
+	<%= link_to 'Add one!', new_transporter_path, {class: "btn btn-default"} %>
 <% end %>
+
+<%= paginate @transporters %>
