@@ -14,9 +14,13 @@
  
 @import "twitter/bootstrap";
 
+$border-line-color: #e5e5e5;
+
 
 body { 
     padding-top: 60px; 
 }
 
-
+#transporterDetails {
+	border-right: 1px solid $border-line-color;
+}
