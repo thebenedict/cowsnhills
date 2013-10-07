@@ -1,16 +1,13 @@
 <div class="row">
-	<div class="col-lg-9">
+	<div class="col-md-7">
 		<p class="lead"><%= pluralize(@transporters_count, 'transporter') %></h3>
 	</div>
-	<div class="col-lg-3 btn-group">
+	<div class="col-md-5 btn-group">
 		<%= link_to 'New Transporter', new_transporter_path, class: "btn btn-success" %>
-		<%= link_to "Show all", transporters_path, class: "btn btn-default" %>
+		<%= link_to "All Transporters", transporters_path, class: "btn btn-default" %>
+		<%= link_to "All Deliveries", deliveries_path, class: "btn btn-info" %>
 	</div>
 </div>
-
-
-
-
 
 <% if !@transporters.blank? %>
 <table class="table table-striped pagination-centered" >

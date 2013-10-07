@@ -1,10 +1,10 @@
 <h1>Listing deliveries</h1>
 
-<table>
+<table class="table table-striped pagination-centered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Current price</th>
+      <th>Transporter</th>
+      <th>Price</th>
       <th>Amount accepted</th>
       <th>Amount rejected</th>
       <th>Comments</th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
-        <td><%= delivery.name %></td>
+        <td><%= link_to delivery.transporter.name, transporter_path(id: delivery.transporter.id), {class: "btn btn-link"} %></td>
         <td><%= delivery.current_price %></td>
         <td><%= delivery.amount_accepted %></td>
         <td><%= delivery.amount_rejected %></td>
         <td><%= delivery.comments %></td>
-        <td><%= link_to 'Show', delivery %></td>
-        <td><%= link_to 'Edit', edit_delivery_path(delivery) %></td>
-        <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', delivery, {class: "btn btn-default"} %></td>
+        <td><%= link_to 'Edit', edit_delivery_path(delivery), {class: "btn btn-default"} %></td>
+        <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>

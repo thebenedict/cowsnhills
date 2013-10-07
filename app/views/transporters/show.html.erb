@@ -1,5 +1,9 @@
-<p id="notice"><%= notice %></p> <!-- flash message -->
-
+<% if notice.present? %>
+<div id="notice" class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert">X</button>
+	<%= notice %>
+</div> <!-- flash message -->
+<% end %>
 <%= link_to 'All transporters', transporters_path, {class: "btn btn-default"} %>
 
 
