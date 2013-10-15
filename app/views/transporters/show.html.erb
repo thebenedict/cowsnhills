@@ -59,6 +59,7 @@
 				<thead>
 					<tr>
 						<th>Deivery ID</th>
+						<th>Delivery date</th>
 						<th>Amount accepted</th>
 						<th>Amount rejected</th>
 						<th>Comments</th>
@@ -68,6 +69,7 @@
 					<% @transporter.deliveries.each do |delivery| %>
 						<tr>
 							<td><%= delivery.id %></td>
+							<td><%= delivery.created_at.strftime("%d %b. %Y") %></td>
 							<td><%= delivery.amount_accepted %></td>
 							<td><%= delivery.amount_rejected %></td>
 							<td><%= delivery.comments %></td>

@@ -11,18 +11,29 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class="input-group">
     <%= f.label :current_price %><br>
-    <%= f.number_field :current_price, class: "form-control" %>
+    <span class="input-group-addon">Rwf</span>
+    <%= f.text_field :current_price, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :amount_accepted %><br>
-    <%= f.number_field :amount_accepted, class: "form-control" %>
+  <br>
+  
+  <%= f.label :amount_accepted %><br>
+  <div class="input-group">
+    <%= f.text_field :amount_accepted, class: "form-control" %>
+    <span class="input-group-addon">Liters</span>
   </div>
-  <div class="form-group">
-    <%= f.label :amount_rejected %><br>
-    <%= f.number_field :amount_rejected, class: "form-control" %>
+  
+  <br>
+  
+  <%= f.label :amount_rejected %><br>
+  <div class="input-group">
+    <%= f.text_field :amount_rejected, class: "form-control" %>
+    <span class="input-group-addon">Liters</span>
   </div>
+  
+  <br>
+  
   <div class="form-group">
     <%= f.label :comments %><br>
     <%= f.text_area :comments, class: "form-control" %>
