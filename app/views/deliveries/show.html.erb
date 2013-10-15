@@ -1,7 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Current price:</strong>
+  <strong>Transporter name:</strong>
+  <%= link_to @delivery.transporter.name, transporter_path(id: @delivery.transporter.id), {class: "btn btn-link"} %>
+</p>
+
+<p>
+  <strong>Delivery id:</strong>
+  <%= @delivery.id %>
+</p>
+
+<p>
+  <strong>Date occured:</strong>
+  <%= @delivery.created_at.strftime("%d %b. %Y") %>
+</p>
+
+<p>
+  <strong>Price per liter:</strong>
   <%= @delivery.current_price %>
 </p>
 
@@ -20,5 +35,5 @@
   <%= @delivery.comments %>
 </p>
 
-<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-<%= link_to 'Back', deliveries_path %>
+<%= link_to 'Edit', edit_delivery_path(@delivery), {class: "btn btn-default"} %> |
+<%= link_to 'All deliveries', deliveries_path, {class: "btn btn-default"} %>
