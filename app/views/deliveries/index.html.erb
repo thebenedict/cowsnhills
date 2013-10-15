@@ -3,8 +3,11 @@
 <table class="table table-striped pagination-centered">
   <thead>
     <tr>
+		<th>Date</th>
+		<th>Time</th>
       <th>Transporter</th>
-      <th>Price</th>
+      <th>Price per liter</th>
+      <th>Amount paid</th>
       <th>Amount accepted</th>
       <th>Amount rejected</th>
       <th>Comments</th>
@@ -15,8 +18,11 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
+		<td><%= delivery.created_at.strftime("%d %b. %Y") %></td>
+		<td><%= delivery.created_at.strftime("%H:%M") %></td>
         <td><%= link_to delivery.transporter.name, transporter_path(id: delivery.transporter.id), {class: "btn btn-link"} %></td>
-        <td><%= delivery.current_price %></td>
+        <td>Rwf <%= delivery.current_price %></td>
+        <td>Rwf <%= (delivery.current_price*delivery.amount_accepted) %></td>
         <td><%= delivery.amount_accepted %></td>
         <td><%= delivery.amount_rejected %></td>
         <td><%= delivery.comments %></td>
