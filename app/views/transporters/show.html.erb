@@ -69,7 +69,7 @@
 					<% @transporter.deliveries.each do |delivery| %>
 						<tr>
 							<td><%= delivery.id %></td>
-							<td><%= delivery.created_at.strftime("%d %b. %Y") %></td>
+							<td><%= delivery.created_at.strftime("%d %b. %Y %H:%M") %></td>
 							<td><%= delivery.amount_accepted %></td>
 							<td><%= delivery.amount_rejected %></td>
 							<td><%= delivery.comments %></td>

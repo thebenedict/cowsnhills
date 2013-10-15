@@ -15,8 +15,8 @@ class DeliveriesController < ApplicationController
   end
 
   def edit
-	@transporter = Transporter.find(params[:id])
-    @delivery = @transporter.deliveries.find(params[:id])
+	@delivery = Delivery.find(params[:id])
+	@transporter = @delivery.transporter
     @delivery.transporter_id = @transporter.id
   end
 
