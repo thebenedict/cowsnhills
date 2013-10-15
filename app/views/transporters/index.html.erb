@@ -25,9 +25,15 @@
   <tbody>
     <% @transporters.each do |transporter| %>
       <tr>
-        <td><%= link_to transporter.name, transporter, {class: "btn btn-link"} %><%= link_to '(edit)', edit_transporter_path(id: transporter.id), {class: "btn btn-link"} %></td>
-        <td><%= transporter.phone %></td>
-        <td><%= transporter.id_number %></td>
+        <td>
+        <span class="glyphicon glyphicon-user"></span>
+        <%= link_to transporter.name, transporter, {class: "btn btn-link"} %><%= link_to '(edit)', edit_transporter_path(id: transporter.id), {class: "btn btn-link"} %></td>
+        <td>
+        <span class="glyphicon glyphicon-earphone"></span>
+        <%= transporter.phone %></td>
+        <td>
+        <span class="glyphicon glyphicon-globe"></span>
+        <%= transporter.id_number %></td>
         <td><%= link_to 'Details', transporter, {class: "btn btn-default"} %></td>
         <td><%= link_to 'Add delivery', new_delivery_path(id: transporter.id), {class: "btn btn-default", id: "addDeliveryBtn"} %></td>
       </tr>

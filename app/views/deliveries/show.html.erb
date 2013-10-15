@@ -36,4 +36,6 @@
 </p>
 
 <%= link_to 'Edit', edit_delivery_path(@delivery), {class: "btn btn-default"} %> |
-<%= link_to 'All deliveries', deliveries_path, {class: "btn btn-default"} %>
+<%= link_to 'All deliveries', deliveries_path, {class: "btn btn-default"} %> |
+<%= link_to "Transporter details", transporter_path(id: @delivery.transporter.id), {class: "btn btn-default"} %>
+
