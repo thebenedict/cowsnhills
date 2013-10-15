@@ -24,7 +24,7 @@ $(document).on("ready page:load", function(){
 	var nameField = $('#nameField');
 	var nameDiv = $('#nameContain');
 	var nameMsg = $('#nameMsg');
-	var nameFilter = /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/; //like that?
+	var nameFilter = /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/;
 	var nameError = "Name must be at least two characters!";
 	
 	nameField.on('blur', function(){validate(nameField, nameDiv, nameMsg, nameFilter, nameError)});
