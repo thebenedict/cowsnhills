@@ -28,7 +28,12 @@ $(document).on("ready page:load", function(){
 	var validate = function(input, contain, msg){
 		var error = "This field must be a number";
 		
-		if(isNaN(input.val()) || input.val() == "" ){
+		if (input.val() == ""){
+			//empty field becomes 0
+			input.val(0);
+			}
+			
+		if(isNaN(input.val())){
 			//not a number or is empty string
 			contain.removeClass('has-success').addClass('has-error');
 			msg.text(error).css({visibility: 'visible'}).addClass("text-danger");
