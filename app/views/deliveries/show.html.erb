@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+<div id="notice" class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert">X</button>
+	<%= notice %>
+</div> <!-- flash message -->
+<% end %>
 
 <p>
   <strong>Transporter name:</strong>
