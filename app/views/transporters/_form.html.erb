@@ -1,4 +1,4 @@
-<%= form_for @transporter, role: "form", id: "transporterForm" do |f| %>
+<%= form_for @transporter, role: "form", html:{id: "transporterForm_#{@transporter.id}"} do |f| %>
   <% if @transporter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@transporter.errors.count, "error") %> prohibited this transporter from being saved:</h2>
