@@ -18,6 +18,7 @@
 
 
 $(document).on("ready page:load", function(){
+	
 	$('.help-inline').css('visibility', 'hidden');	//hide messages
 	
 	var form = $('#formCol form');

@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body { 
-    padding-top: 60px; 
+
+
+/* media queries */
+@media(max-width:767px){
 }
+@media(min-width:768px){
+
+}
+@media(min-width:992px){
+	body { 
+		padding-top: 60px; 
+	}
+}
+@media(min-width:1200px){}

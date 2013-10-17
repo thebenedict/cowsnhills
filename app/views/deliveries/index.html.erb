@@ -1,6 +1,29 @@
 <h1>Listing deliveries</h1>
 
-<table class="table table-striped pagination-centered">
+<ul class="list-group visible-xs">
+	<% @deliveries.each do |delivery| %>
+		<li class="list-group-item">
+			<div class="row">
+				<%= link_to delivery, {class: "btn btn-link"} do %>
+					<h4 class="list-group-item-heading text-center">
+						<%= delivery.created_at.strftime("%d/%m/%y %H:%M") %>:
+						<%= delivery.transporter.name %>
+					</h4>
+				<% end %>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<strong>Accepted:</strong> <%= delivery.amount_accepted %>
+				</div>
+				<div class="col-xs-6">
+					<strong>Rejected:</strong> <%= delivery.amount_rejected %>
+				</div>
+			</div>
+		</li>
+	<% end %>
+</ul>
+
+<table class="table table-striped pagination-centered hidden-xs">
   <thead>
     <tr>
 		<th>Date</th>
