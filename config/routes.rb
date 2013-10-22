@@ -3,7 +3,7 @@ Cowsnhills::Application.routes.draw do
 
   resources :deliveries
 
-  root 'welcome#index'
+  root 'transporters#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
