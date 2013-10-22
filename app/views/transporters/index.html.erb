@@ -12,14 +12,22 @@
 <% if !@transporters.blank? %>
 
 <ul class="list-group visible-xs">
+	
 	<% @transporters.each do |transporter| %>
 		<li class="list-group-item">
+		<div class="row">
+			<div class="col-xs-8">
 			<%= link_to transporter, {class: "btn btn-link"} do %>
 				<h4 class="list-group-item-heading"><%= transporter.name %></h4>
 			<% end %>
+			</div>
+			<div class="col-xs-4">
 			<%= link_to 'Add delivery', new_delivery_path(id: transporter.id), {class: "btn btn-default pull-right", id: "addDeliveryBtn"} %>
+			</div>
+				</div>
 		</li>
 	<% end %>
+
 </ul>
 
 <table class="table table-striped table-hover table-responsive pagination-centered hidden-xs">
