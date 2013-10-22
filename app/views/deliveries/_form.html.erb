@@ -43,5 +43,6 @@
   </div>
   <div class="actions">
     <%= f.submit @delivery.new_record? ? "Add delivery" : "Edit delivery", class: 'btn btn-success' %>
+    <%= link_to "Cancel", deliveries_path, class: 'btn btn-default' %>
   </div>
 <% end %>
