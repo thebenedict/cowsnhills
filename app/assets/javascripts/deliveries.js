@@ -4,7 +4,7 @@
 */
 
 $(document).on("ready page:load", function(){
-	var form = $('#formCol form');
+	var form = $('#deliveryform');
 	
 	//price
 	var currPrice = $('#currPrice'),

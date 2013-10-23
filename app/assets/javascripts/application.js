@@ -16,7 +16,6 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-
 $(document).on("ready page:load", function(){
 	
 	$('.help-inline').css('visibility', 'hidden');	//hide messages
@@ -155,13 +154,12 @@ $(document).on("ready page:load", function(){
 
 	//submit validations
 	form.on('submit', function(event) {
-
 		if (!validateName() || !validatePhone() || !validateId()) {
 			//doesn't pass, cannot submit
 			event.preventDefault();
 			console.log("does not pass");
-		} 
-	});
+		}
+	}); 
 })
 
 	
