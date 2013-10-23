@@ -10,9 +10,7 @@ $(document).on("ready page:load", function(){
 	var currPrice = $('#currPrice'),
 		priceContain = $('#priceContain'),
 		priceMsg = $('#priceMsg');
-	
-	console.log(currPrice, priceMsg, priceContain);
-	
+		
 	//accepted
 	var accepted = $('#accepted'),
 		acceptedContain = $('#acceptedContain'),
