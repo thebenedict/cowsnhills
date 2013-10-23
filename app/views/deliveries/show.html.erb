@@ -5,47 +5,41 @@
 </div> <!-- flash message -->
 <% end %>
 
-<p>
-  <strong>Transporter name:</strong>
-  <%= link_to @delivery.transporter.name, transporter_path(id: @delivery.transporter.id), {class: "btn btn-link"} %>
-</p>
+<%= render 'layouts/buttons' %>
 
-<p>
-  <strong>Delivery id:</strong>
-  <%= @delivery.id %>
-</p>
+<div class="row visible-xs" id="deliveries-list">
+  <div class="col-md-12">
+	<dl class="dl-horizontal list-inline">
+		<dt>Transporter name:</dt>
+		<dd><%= link_to @delivery.transporter.name, transporter_path(id: @delivery.transporter.id), {class: "btn btn-link"} %></dd>
+		
+		<dt>Delivery id:</dt>
+		<dd><%= @delivery.id %></dd>
+		
+		<dt>Date:</dt>
+		<dd><%= @delivery.created_at.strftime("%d %b. %Y") %></dd>
+		
+		<dt>Time:</dt>
+		<dd><%= @delivery.created_at.strftime("%H:%M") %></dd>
+		
+		<dt>Price per liter:</dt>
+		<dd><%= @delivery.current_price %></dd>
+		
+		<dt>Amount accepted:</dt>
+		<dd><%= @delivery.amount_accepted %></dd>
+		
+		<dt>Amount rejected:</dt>
+		<dd><%= @delivery.amount_rejected %></dd>
+		
+		<dt>Comments:</dt>
+		<dd><%= @delivery.comments %></dd>
+		
+	</dl>
 
-<p>
-  <strong>Date:</strong>
-  <%= @delivery.created_at.strftime("%d %b. %Y") %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @delivery.created_at.strftime("%H:%M") %>
-</p>
-
-<p>
-  <strong>Price per liter:</strong>
-  <%= @delivery.current_price %>
-</p>
-
-<p>
-  <strong>Amount accepted:</strong>
-  <%= @delivery.amount_accepted %>
-</p>
-
-<p>
-  <strong>Amount rejected:</strong>
-  <%= @delivery.amount_rejected %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @delivery.comments %>
-</p>
-
-<%= link_to 'Edit', edit_delivery_path(@delivery), {class: "btn btn-default"} %> |
-<%= link_to 'All deliveries', deliveries_path, {class: "btn btn-default"} %> |
-<%= link_to "Transporter details", transporter_path(id: @delivery.transporter.id), {class: "btn btn-default"} %>
-
+	<div class="row">
+		<div class="col-xs-12">
+			<%= link_to 'Edit', edit_delivery_path(@delivery), {class: "btn btn-default btn-block"} %>
+		</div>
+	</div>
+</div><!-- /.col-md-12 -->
+</div><!-- /.row -->
