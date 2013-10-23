@@ -1,28 +1,39 @@
-<h1>Listing deliveries</h1>
+<div class="row">
+	<div class="col-md-6">
+		<p class="lead">Listing deliveries</p>
+	</div>
+	<div class="col-md-2">
+		<%= link_to 'New Transporter', new_transporter_path, class: "btn btn-success btn-block" %>
+	</div>
+	<div class="col-md-2">
+		<%= link_to "All Transporters", transporters_path, class: "btn btn-default btn-block" %>
+  </div>
+	<div class="col-md-2">
+		<%= link_to "All Deliveries", deliveries_path, class: "btn btn-info btn-block" %>
+  </div>
+</div>
 
-<ul class="list-group visible-xs">
-	<% @deliveries.each do |delivery| %>
-		<li class="list-group-item">
-			<div class="row">
-				<%= link_to delivery, {class: "btn btn-link"} do %>
-					<h4 class="list-group-item-heading text-center">
-						<%= delivery.created_at.strftime("%d/%m/%y %H:%M") %>:
-						<%= delivery.transporter.name %>
-					</h4>
-				<% end %>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<strong>Accepted:</strong> <%= delivery.amount_accepted %>
-				</div>
-				<div class="col-xs-6">
-					<strong>Rejected:</strong> <%= delivery.amount_rejected %>
-				</div>
-			</div>
-		</li>
-	<% end %>
-</ul>
+<!-- Mobile -->
+<div class="row visible-xs" id="deliveries-list">
+  <div class="col-md-12">
+    <ul class="list-group">
+	    <% @deliveries.each do |delivery| %>
+		    <li class="list-group-item">
+          <h5 class="list-group-item-heading"><%= delivery.created_at.strftime("%d/%m/%y") %> By <%= delivery.transporter.name %></h5><!-- make '23 October 13' -->
+		  <p><%= delivery.amount_accepted %> Liters</p>    
+		      <%= link_to delivery do %>
+			      <btn class="btn btn-primary btn-block">View details</btn>
+		      <% end %>
+		      <%= link_to 'View transporter', transporter_path(id: delivery.transporter.id), {class: "btn btn-default btn-block", id: "addTransporterBtn"} %>
+		    </li>
+	    <% end %>
+    </ul>
+  </div>
+</div>
+<!-- /Mobile -->
 
+
+<!-- Desktop -->
 <table class="table table-striped pagination-centered hidden-xs">
   <thead>
     <tr>
@@ -60,5 +71,5 @@
     <% end %>
   </tbody>
 </table>
+<!-- /Desktop -->
 
-<br>

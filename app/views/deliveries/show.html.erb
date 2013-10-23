@@ -16,8 +16,13 @@
 </p>
 
 <p>
-  <strong>Date occured:</strong>
+  <strong>Date:</strong>
   <%= @delivery.created_at.strftime("%d %b. %Y") %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @delivery.created_at.strftime("%H:%M") %>
 </p>
 
 <p>

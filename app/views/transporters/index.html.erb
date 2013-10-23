@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-6">
-		<p class="lead"><%= pluralize(@transporters_count, 'transporter') %></h3>
+		<p class="lead"><%= pluralize(@transporters_count, 'transporter') %></p>
 	</div>
 	<div class="col-md-2">
 		<%= link_to 'New Transporter', new_transporter_path, class: "btn btn-success btn-block" %>
@@ -15,6 +15,7 @@
 
 <% if !@transporters.blank? %>
 
+<!-- Mobile -->
 <div class="row visible-xs" id="transporter-list">
   <div class="col-md-12">
     <ul class="list-group">
@@ -30,9 +31,10 @@
     </ul>
   </div>
 </div>
+<!-- /Mobile -->
 
+<!-- Desktop -->
 <table class="table table-striped table-hover table-responsive pagination-centered hidden-xs">
-
   <thead>
     <tr>
       <th>Name</th>
@@ -61,7 +63,8 @@
     <% end %>
   </tbody>
 </table>
-<br>
+<!-- /Desktop -->
+
 <% else %>
 	<p>There are no transporters in the database</p>
 	<%= link_to 'Add one!', new_transporter_path, {class: "btn btn-default"} %>
