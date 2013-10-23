@@ -15,23 +15,6 @@
 
 <% if !@transporters.blank? %>
 
-<<<<<<< HEAD
-<div class="row visible-xs" id="transporter-list">
-  <div class="col-md-12">
-    <ul class="list-group">
-	    <% @transporters.each do |transporter| %>
-		    <li class="list-group-item">
-          <h5 class="list-group-item-heading"><%= transporter.name %></h5>
-		      <%= link_to transporter do %>
-			      <btn class="btn btn-primary btn-block">View details</btn>
-		      <% end %>
-		      <%= link_to 'Add delivery', new_delivery_path(id: transporter.id), {class: "btn btn-default btn-block", id: "addDeliveryBtn"} %>
-		    </li>
-	    <% end %>
-    </ul>
-  </div>
-</div>
-=======
 <ul class="list-group visible-xs">
 	
 	<% @transporters.each do |transporter| %>
@@ -50,7 +33,6 @@
 	<% end %>
 
 </ul>
->>>>>>> mobile
 
 <table class="table table-striped table-hover table-responsive pagination-centered hidden-xs">
 
