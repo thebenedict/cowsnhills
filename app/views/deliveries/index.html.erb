@@ -1,17 +1,4 @@
-<div class="row">
-	<div class="col-md-6">
-		<p class="lead">Listing deliveries</p>
-	</div>
-	<div class="col-md-2">
-		<%= link_to 'New Transporter', new_transporter_path, class: "btn btn-success btn-block" %>
-	</div>
-	<div class="col-md-2">
-		<%= link_to "All Transporters", transporters_path, class: "btn btn-default btn-block" %>
-  </div>
-	<div class="col-md-2">
-		<%= link_to "All Deliveries", deliveries_path, class: "btn btn-info btn-block" %>
-  </div>
-</div>
+<%= render 'layouts/buttons' %>
 
 <!-- Mobile -->
 <div class="row visible-xs" id="deliveries-list">
