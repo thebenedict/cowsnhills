@@ -32,5 +32,6 @@
   
   <div class="actions">
     <%= f.submit @transporter.new_record? ? "Add transporter" : "Edit transporter", id: "submit-btn", class: 'btn btn-success' %>
+    <%= link_to "Cancel", transporters_path, class: 'btn btn-default' %>
   </div>
 <% end %>
