@@ -58,3 +58,6 @@ gem 'bootstrap-sass-rails'
 gem 'thin'
 
 gem 'rails_12factor', group: :production
+
+#webserver
+gem 'unicorn'
