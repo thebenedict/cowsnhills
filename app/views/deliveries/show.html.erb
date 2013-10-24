@@ -7,8 +7,8 @@
 
 <%= render 'layouts/buttons' %>
 
-<div class="row visible-xs" id="deliveries-list">
-  <div class="col-md-12">
+<div class="row visible-xs panel panel-default" id="deliveries-list">
+  <div class="col-md-12 panel-body">
 	<dl class="dl-horizontal list-inline">
 		<dt>Transporter name:</dt>
 		<dd><%= link_to @delivery.transporter.name, transporter_path(id: @delivery.transporter.id), {class: "btn btn-link"} %></dd>
