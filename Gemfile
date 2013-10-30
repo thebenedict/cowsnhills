@@ -44,7 +44,7 @@ end
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
  gem 'capistrano', group: :development
@@ -55,6 +55,6 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 #sass bootstrap
 gem 'bootstrap-sass-rails'
 
-gem 'thin'
+#gem 'thin'
 
 gem 'rails_12factor', group: :production
