@@ -1,6 +1,6 @@
-<div class="header" ng-controller='NavCtrl'>
+<div class="header">
   <ul class="nav nav-pills pull-right" ng-show-auth='login'>
-    <li><a ng-href="#">Home</a></li>
+    <li ng-class="{ active: $state.includes('dashboard') }"><a ui-sref="dashboard">Dashboard</a></li>
     <li><a href="javascript:void(0)" ng-click='logout()'>Logout</a></li>
   </ul>
 
@@ -8,5 +8,5 @@
     <li ><a ng-href="#/login">Login</a></li>
     <li><a ng-href="#/register">Register</a></li>
   </ul>
-  <h3 class="text-muted">cowsnhills</h3>
+  <h3 class="text-muted"><a ng-href="#">cowsnhills</a></h3>
 </div>

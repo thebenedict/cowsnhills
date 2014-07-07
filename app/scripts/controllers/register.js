@@ -25,19 +25,13 @@ app.controller('RegisterCtrl', ['$scope', '$location', 'Auth', function($scope, 
 			$scope.errors = errors; return;
 		}
 
-		// create authentication
+		// create authenticated user
 		Auth.register(registerUser.email, registerUser.password, function(err, user){
 			if (err){
 				$scope.errors.push(err)
 			} else {
-				// create User object in database
-				//.................................
-     //        	User.create(user, registerUser).then(function(refToUser){
 
-					
-     //        	})
-
-				// log user in with their new credential
+				// log user in with their new credentials
 				Auth.login(registerUser.email, registerUser.password)
 
 				$location.path('/')

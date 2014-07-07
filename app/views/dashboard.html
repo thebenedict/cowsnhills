@@ -1,0 +1,17 @@
+<h2>Dashboard</h2>
+
+<div class='row'>
+	<h4 class='col-md-6'>Cooperatives</h4>
+	<div class='btn-group pull-right'>
+		<div class="btn btn-default" 
+			ng-click='$state.go("dashboard.cooperatives")'
+			ng-class="{ active: $state.includes('dashboard.cooperatives') }">View all</div>
+		<div class="btn btn-default" 
+			ng-click='$state.go("dashboard.newCooperative")'
+			ng-class="{ active: $state.includes('dashboard.newCooperative') }">Add</div>
+	</div>
+</div>
+
+<div class='container'>
+	<div ui-view></div>
+</div>

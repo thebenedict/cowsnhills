@@ -26,7 +26,7 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div ng-include="'views/nav.html'" ng-controller="MainCtrl"></div>
+      <div ng-include="'views/nav.html'" ng-controller="NavCtrl"></div>
 
       <div ui-view></div>
     </div>
@@ -58,6 +58,7 @@
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/angularfire/angularfire.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -65,12 +66,18 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/routes.js"></script>
         <script src="scripts/services/Auth.js"></script>
+        <script src="scripts/services/Transporter.js"></script>
+        <script src="scripts/services/Delivery.js"></script>
+        <script src="scripts/services/Cooperative.js"></script>
 
         <script src="scripts/controllers/nav.js"></script>
         <script src="scripts/controllers/register.js"></script>
         <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/controllers/cooperatives.js"></script>
+        <script src="scripts/controllers/viewCooperative.js"></script>
         <!-- endbuild -->
         
         <!-- Firebase authentication helper modules -->

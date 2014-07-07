@@ -40,7 +40,7 @@ app.controller('LoginCtrl', ['$scope', '$location', 'Auth', function($scope, $lo
 				// successful login, setCurrentUser
 
 				
-				$location.path('/chat')
+				$location.path('/')
 			}
 		})
 	};

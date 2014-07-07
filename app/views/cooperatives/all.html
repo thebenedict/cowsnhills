@@ -1,0 +1,26 @@
+<div ng-if='cooperatives.$getIndex().length === 0'>
+	<p class='text-center'><b>You haven't added any cooperatives yet</b></p>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">All Cooperatives</div>
+
+  <table class="table">
+    <thead>
+    	<tr>
+    		<th>Name</th>
+    		<th>Location</th>
+		</tr>
+    </thead>
+    <tbody>
+    	<tr ng-repeat='(cooperativeId, cooperative) in cooperatives'>
+    		<td>{{ cooperative.name }}</td>
+    		<td>{{ cooperative.location }}</td>
+    		<td><a ng-href='#/dashboard/cooperatives/{{ cooperativeId }}'>details</a></td>
+        <td><a href="javascript:void(0)" 
+          class='text text-danger'
+          ng-click='deletionModal(cooperativeId)'>delete</a></td>
+		</tr>
+    </tbody>
+  </table>
+</div>
