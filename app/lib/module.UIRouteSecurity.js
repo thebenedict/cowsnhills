@@ -1,3 +1,5 @@
+// https://gist.github.com/mattvv/183e2a4073557b77ecb3
+
 (function (angular) {
   'use strict';
   angular.module('ui.routeSecurity', [])

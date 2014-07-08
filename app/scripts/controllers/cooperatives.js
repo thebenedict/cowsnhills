@@ -1,6 +1,7 @@
 'use strict'
 
-app.controller('CooperativesCtrl', ['$scope', '$state', '$modal', 'Cooperative', function($scope, $state, $modal, Cooperative){
+app.controller('CooperativesCtrl', ['$scope', '$state', '$modal', 'Cooperative',
+	function($scope, $state, $modal, Cooperative){
 
 	$scope.cooperatives = Cooperative.all;
 
@@ -11,6 +12,7 @@ app.controller('CooperativesCtrl', ['$scope', '$state', '$modal', 'Cooperative',
 		})
 	};
 
+	// more about the modal here: http://angular-ui.github.io/bootstrap/
 	$scope.deletionModal = function(cooperativeId){
 		var deletionModal = $modal.open({
 			templateUrl: 'views/cooperatives/modals/delete.html',

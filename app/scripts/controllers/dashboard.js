@@ -4,5 +4,4 @@ app.controller('DashboardCtrl', ['$scope', 'Cooperative', function($scope, Coope
 
 	$scope.cooperatives = Cooperative.all;
 
-	
 }])

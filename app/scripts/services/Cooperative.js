@@ -11,7 +11,6 @@ app.service('Cooperative', ['FBURL', '$firebase', function(FBURL, $firebase){
 		},
 		read: function(cooperativeId){
 			return cooperatives.$child(cooperativeId);
-
 		},
 		update: function(cooperativeId){
 			

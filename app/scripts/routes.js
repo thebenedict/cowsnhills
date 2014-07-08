@@ -1,6 +1,10 @@
 app.config(["$urlRouterProvider", "$stateProvider", function($urlRouterProvider, $stateProvider){
 
 	$stateProvider
+		.state('home', {
+			url: '/',
+			templateUrl: 'views/main.html'
+		})
 		.state('dashboard', {
 			url: '/dashboard',
 			controller: 'DashboardCtrl',

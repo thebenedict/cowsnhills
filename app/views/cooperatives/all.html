@@ -2,7 +2,7 @@
 	<p class='text-center'><b>You haven't added any cooperatives yet</b></p>
 </div>
 
-<div class="panel panel-default">
+<div ng-if='cooperatives.$getIndex().length > 0' class="panel panel-default">
   <div class="panel-heading">All Cooperatives</div>
 
   <table class="table">
